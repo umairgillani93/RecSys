@@ -80,7 +80,7 @@ def find_contact():
         else:
             return 'No'
 
-print(find_contact())
+# print(find_contact())
 starwar_user_rating = movie_matrix['Star Wars (1977)']
 crazy_user_rating = movie_matrix['You So Crazy (1994)']
 
@@ -90,6 +90,4 @@ crazy_user_rating = movie_matrix['You So Crazy (1994)']
 similar_to_starwars = movie_matrix.corrwith(starwar_user_rating)
 similar_to_crazy = movie_matrix.corrwith(crazy_user_rating)
 print(similar_to_starwars.head())
-print(similar_to_crazy)
-print(end_results)
-
+print(similar_to_crazy.head())
