@@ -53,7 +53,7 @@ def check_movie():
         return False
 
 def MovieChoice(movie):
-    
+
     movie_rating = movie_matrix[movie]
     similar_to_movie = movie_matrix.corrwith(movie_rating)
     movie_corr = pd.DataFrame(data = similar_to_movie, columns = ['Correlations'])
@@ -61,6 +61,8 @@ def MovieChoice(movie):
 
     movie_corr = movie_corr.join(ratings['number_of_ratings'])
     final_result = movie_corr[movie_corr['number_of_ratings'] > 100].sort_values(by = ['Correlations', 'number_of_ratings'],
-                                                                     ascending = False).head(10)
+                                                                         ascending = False).head(10)
+
+    final_result.reset_index(level = 0, inplace = True)
 
     return final_result
