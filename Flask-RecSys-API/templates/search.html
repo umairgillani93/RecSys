@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if rec %}
+  {% for item in rec.get()['titles']%}
+    <li>{{item}}</li>
+  {% endfor %}
+{% endif %}
+{% endblock %}

@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
-import warnings
+
 warnings.filterwarnings("ignore")
 
 df = pd.read_csv('/home/umairshah/Datasets/MovieLense/movielens-100k-dataset/ml-100k/u.data',
@@ -14,7 +14,7 @@ movie_titles1 = pd.read_csv('/home/umairshah/Datasets/MovieLens1/ml-1m/movies.da
 
 # print(movie_titles1.head())
 movie_titles1.drop('genres', axis = 1, inplace = True)
-
+print(movie_titles1.info())
 # print(movie_titles1.head())
 df = pd.merge(df, movie_titles1, on = 'movie_id')
 
@@ -60,7 +60,7 @@ def MovieChoice(movie):
     movie_corr.dropna(inplace = True)
 
     movie_corr = movie_corr.join(ratings['number_of_ratings'])
-    final_result = movie_corr[movie_corr['number_of_ratings'] > 100].sort_values(by = ['Correlations', 'number_of_ratings'],
+    final_result = movie_corr[movie_corr['number_of_ratings'] > 100].sort_values(by = ['Correlations'],
                                                                          ascending = False).head(10)
 
     final_result.reset_index(level = 0, inplace = True)

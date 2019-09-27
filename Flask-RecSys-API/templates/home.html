@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {%  block content %}
-<h1>Here's is your Recommendations for the Movie: "Young Guns (1988)" </h1>
+<div class="jumbotron">
 
-{% if rec %}
+  <h1>Here's is your Recommendations for the Chosen Movie:" </h1>
 
-  {% for item in rec.get()['title'] %}
-    <li>{{item}}</li>
-  {% endfor %}
+  {% if rec %}
 
-{% else %}
-  <h2>Movie Not Found!</h2>
+    {% for item in rec.get()['title'] %}
+      <li>{{item}}</li>
+    {% endfor %}
 
-{% endif %}
+  {% else %}
+    <h2>Movie Not Found!</h2>
 
+  {% endif %}
+</div>
 {% endblock %}
